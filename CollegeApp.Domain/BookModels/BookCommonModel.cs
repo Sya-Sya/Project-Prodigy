@@ -1,6 +1,6 @@
 ﻿using CollegeApp.Domain.BookModels.AuthorModels;
 using CollegeApp.Domain.BookModels.PublisherModels;
-using CollegeApp.Domain.Enums;
+using CollegeApp.Domain.Enums.Books;
 
 namespace CollegeApp.Domain.BookModels;
 

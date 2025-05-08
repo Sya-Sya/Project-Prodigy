@@ -1,4 +1,4 @@
-﻿namespace CollegeApp.Domain.Enums;
+﻿namespace CollegeApp.Domain.Enums.Books;
 
 public enum Edition
 {
