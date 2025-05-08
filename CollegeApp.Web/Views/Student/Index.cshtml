@@ -1,0 +1,9 @@
+﻿@model IEnumerable<CollegeApp.Domain.StudentModels.StudentCommonModel>
+
+<h2>Students List</h2>
+<ul>
+    @foreach (var student in Model)
+    {
+        <li>@student.name</li>
+    }
+</ul>

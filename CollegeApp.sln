@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollegeApp.API", "CollegeApp.API\CollegeApp.API.csproj", "{59EBF9A1-E095-4DB9-BE83-3FA1ED194B74}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollegeApp.Application", "CollegeApp.Application\CollegeApp.Application.csproj", "{A886360D-FA52-446B-8993-30BB0512B0EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollegeApp.Domain", "CollegeApp.Domain\CollegeApp.Domain.csproj", "{3A0ACF43-2BB6-4A06-A65D-E7FAB1693214}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollegeApp.Infrastructure", "CollegeApp.Infrastructure\CollegeApp.Infrastructure.csproj", "{2E2AEA73-3C6E-410C-AEB3-6FF74785E66E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeApp.Web", "CollegeApp.Web\CollegeApp.Web.csproj", "{681291E2-B065-45C7-BEDC-586B1B5F2CB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeApp.DependencyContainer", "CollegeApp.DependencyContainer\CollegeApp.DependencyContainer.csproj", "{EC991400-1FA7-48E4-B1E7-35F82BCDA535}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59EBF9A1-E095-4DB9-BE83-3FA1ED194B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59EBF9A1-E095-4DB9-BE83-3FA1ED194B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59EBF9A1-E095-4DB9-BE83-3FA1ED194B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59EBF9A1-E095-4DB9-BE83-3FA1ED194B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A886360D-FA52-446B-8993-30BB0512B0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A886360D-FA52-446B-8993-30BB0512B0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A886360D-FA52-446B-8993-30BB0512B0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A886360D-FA52-446B-8993-30BB0512B0EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0ACF43-2BB6-4A06-A65D-E7FAB1693214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0ACF43-2BB6-4A06-A65D-E7FAB1693214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0ACF43-2BB6-4A06-A65D-E7FAB1693214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0ACF43-2BB6-4A06-A65D-E7FAB1693214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E2AEA73-3C6E-410C-AEB3-6FF74785E66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E2AEA73-3C6E-410C-AEB3-6FF74785E66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E2AEA73-3C6E-410C-AEB3-6FF74785E66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E2AEA73-3C6E-410C-AEB3-6FF74785E66E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{681291E2-B065-45C7-BEDC-586B1B5F2CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681291E2-B065-45C7-BEDC-586B1B5F2CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681291E2-B065-45C7-BEDC-586B1B5F2CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681291E2-B065-45C7-BEDC-586B1B5F2CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC991400-1FA7-48E4-B1E7-35F82BCDA535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC991400-1FA7-48E4-B1E7-35F82BCDA535}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC991400-1FA7-48E4-B1E7-35F82BCDA535}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC991400-1FA7-48E4-B1E7-35F82BCDA535}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

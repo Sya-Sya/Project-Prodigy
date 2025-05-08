@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/CollegeApp.API/bin
+/CollegeApp.API/obj
+/CollegeApp.Application/bin
+/CollegeApp.Application/obj
+/CollegeApp.DependencyContainer/bin
+/CollegeApp.DependencyContainer/obj
+/CollegeApp.Domain/bin
+/CollegeApp.Domain/obj
+/CollegeApp.Infrastructure/bin
+/CollegeApp.Infrastructure/.vs/CollegeApp.Infrastructure
+/CollegeApp.Infrastructure/obj
+/CollegeApp.Web/bin
+/CollegeApp.Web/obj
