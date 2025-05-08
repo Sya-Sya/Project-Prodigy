@@ -5,27 +5,27 @@ using CollegeApp.Domain.BookModels;
 namespace CollegeApp.Infrastructure.Services;
 public class BookService : IBookService
 {
-    public Task<BookCommonModel> CreateAsync(BookCommonModel input)
+    public async Task<BookCommonModel> CreateAsync(BookCommonModel input)
     {
         throw new NotImplementedException();
     }
 
-    public Task DeleteAsync(Guid id)
+    public async Task DeleteAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<BookCommonModel> GetAsync(Guid id)
+    public async Task<BookCommonModel> GetAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<PagedResult<BookCommonModel>> GetListAsync(BookFilter input)
+    public async Task<PagedResult<BookCommonModel>> GetListAsync(BookFilter input)
     {
         throw new NotImplementedException();
     }
 
-    public Task<BookCommonModel> UpdateAsync(Guid id, BookCommonModel input)
+    public async Task<BookCommonModel> UpdateAsync(Guid id, BookCommonModel input)
     {
         throw new NotImplementedException();
     }

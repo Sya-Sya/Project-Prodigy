@@ -10,5 +10,6 @@ public static class DependencyInjection
     {
         // Register all services here (Web + API share this setup)
         services.AddScoped<IStudentServices, StudentService>();
+        services.AddScoped<IBookService, BookService>();
     }
 }
