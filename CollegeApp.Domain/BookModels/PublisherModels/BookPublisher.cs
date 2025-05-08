@@ -4,6 +4,6 @@ public class BookPublisher
     public string BookId { get; set; }
     public BookCommonModel Book { get; set; }
 
-    public string PubliserId { get; set; }
+    public string PublisherId { get; set; }
     public PublisherCommonModel Publisher { get; set; }
 }
