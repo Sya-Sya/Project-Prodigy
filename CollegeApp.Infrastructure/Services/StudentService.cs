@@ -1,10 +1,5 @@
 ﻿using CollegeApp.Application.Interface;
 using CollegeApp.Domain.StudentModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CollegeApp.Infrastructure.Services
 {
@@ -14,8 +9,8 @@ namespace CollegeApp.Infrastructure.Services
         {
             return new List<StudentCommonModel>
             {
-                new StudentCommonModel { id = "1", name = "Bigya GOD" },
-                new StudentCommonModel { id = "2", name = "SHINIGAMI" }
+                new StudentCommonModel { Id = "1", Name = "Bigya GOD" },
+                new StudentCommonModel { Id = "2", Name = "SHINIGAMI" }
             };
         }
     }
