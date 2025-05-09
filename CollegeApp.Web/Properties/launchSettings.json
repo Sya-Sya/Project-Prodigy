@@ -8,6 +8,12 @@
       "sslPort": 44335
     }
   },
+  "DbConnection": {
+    "CoreSystem": {
+      "ConnectionString": "Server=172.20.22.12;Database=IME_SWIFT_REMIT_V0;User Id=prasant;Password=ime@1111;Encrypt=True;TrustServerCertificate=False;",
+      "ExecutionTimeOut": "120"
+    }
+  },
   "profiles": {
     "http": {
       "commandName": "Project",
