@@ -1,4 +1,5 @@
 using CollegeApp.Application.Interface;
+using CollegeApp.Infrastructure.Repositories.AgentRepo;
 using CollegeApp.Infrastructure.Services;
 using CollegeApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -10,17 +11,20 @@ namespace CollegeApp.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IStudentServices _studentServices;
+        private readonly IAgentRepository _AgentServices;
 
-        public HomeController(ILogger<HomeController> logger, IStudentServices studentServices)
+        public HomeController(ILogger<HomeController> logger, IStudentServices studentServices, IAgentRepository agentservices)
         {
             _logger = logger;
             _studentServices = studentServices;
+            _AgentServices = agentservices;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var students = _studentServices.GetAllStudents();
-            return View(students);
+            var lit = await _AgentServices.GetAllAgentAsync();
+            return View(lit);
         }
 
         public IActionResult Privacy()
