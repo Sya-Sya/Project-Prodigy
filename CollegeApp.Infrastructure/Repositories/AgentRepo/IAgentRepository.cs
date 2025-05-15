@@ -14,5 +14,7 @@ namespace CollegeApp.Infrastructure.Repositories.AgentRepo
         Task<int> AddAgentAsync(agentContact Agent);
         Task<int> UpdateAgentAsync(agentContact Agent);
         Task<int> DeleteAgentAsync(int id);
+        Task<IEnumerable<int>> GetMemberOrdersAsync(int memberId);
+        Task<IEnumerable<int>> GetOrderDetailsAsync(char flag);
     }
 }

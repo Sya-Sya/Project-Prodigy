@@ -1,0 +1,8 @@
+CREATE FUNCTION HashPassword(password VARCHAR(255))
+RETURNS VARCHAR(255) DETERMINISTIC
+RETURN SHA2(password, 256);
+
+-- Verify Hash Function
+CREATE FUNCTION VerifyPassword(password VARCHAR(255), hash VARCHAR(255))
+RETURNS BOOLEAN DETERMINISTIC
+RETURN (SHA2(password, 256) = hash);
