@@ -57,5 +57,52 @@ namespace CollegeApp.Infrastructure.Repositories.AgentRepo
             const string query = "UPDATE Students SET FirstName = @FirstName, LastName = @LastName WHERE agentId = @Id";
             return await _dbConnection.ExecuteAsync(query, Agent);
         }
+
+        //Using Dapper in SP
+        public async Task<IEnumerable<int>> GetMemberOrdersAsync(int memberId) // int replace with model (int ~ Order)
+        {
+            const string storedProcedure = "GetMemberOrders";
+
+            try
+            {
+                using (var connection = _dbConnection)
+                {
+                    var orders = await connection.QueryAsync<int>(
+                        storedProcedure,
+                        new { memberId },
+                        commandType: CommandType.StoredProcedure);
+                    return orders;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return Enumerable.Empty<int>();
+            }
+        }
+
+        public async Task<IEnumerable<int>> GetOrderDetailsAsync(char flag) // int replace with model (int ~ Order)
+        {
+            const string storedProcedure = "GetOrderDetails";
+
+            try
+            {
+                using (var connection = _dbConnection)
+                {
+                    var orders = await connection.QueryAsync<int>(
+                        storedProcedure,
+                        new { flag },
+                        commandType: CommandType.StoredProcedure);
+                    return orders;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return Enumerable.Empty<int>();
+            }
+        }
+
+
     }
 }

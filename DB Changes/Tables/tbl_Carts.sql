@@ -1,0 +1,7 @@
+CREATE TABLE [dbo].[Carts] (
+    [CartID] INT IDENTITY(1,1) PRIMARY KEY,
+    [MemberID] INT,
+	[Quantity] INT DEFAULT 1,
+    [CreatedAt] TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (MemberID) REFERENCES Members(MemberID)
+);
