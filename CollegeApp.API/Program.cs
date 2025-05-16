@@ -1,6 +1,4 @@
 using CollegeApp.DependencyContainer;
-using CollegeApp.Domain.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

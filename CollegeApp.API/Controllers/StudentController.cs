@@ -17,14 +17,14 @@ namespace CollegeApp.API.Controllers
             _AgentServices = agentservices;
         }
 
-        [HttpGet]
+        [HttpGet("students")]
         public IActionResult GetStudentList()
         {
             var students = _studentServices.GetAllStudents();
             return Ok(students);
         }
 
-        [HttpGet]
+        [HttpGet("agents")]
         public async Task<IActionResult> GetAll()
         {
             var agent = await _AgentServices.GetAllAgentAsync();
