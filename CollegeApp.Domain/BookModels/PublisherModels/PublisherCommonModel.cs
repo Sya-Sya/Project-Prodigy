@@ -1,8 +1,8 @@
 ﻿namespace CollegeApp.Domain.BookModels.PublisherModels;
 
-public class PublisherCommonModel : BaseModel
+public class PublisherCommonModel
 {
+    public int PublisherID { get; set; }
     public string Name { get; set; }
-
-    public ICollection<BookCommonModel> Books { get; set; } = new List<BookCommonModel>();
+    public string Location { get; set; }
 }

@@ -1,20 +1,22 @@
-﻿using CollegeApp.Domain.BookModels.AuthorModels;
-using CollegeApp.Domain.BookModels.PublisherModels;
-using CollegeApp.Domain.Enums.Books;
+﻿using CollegeApp.Domain.BookModels.PublisherModels;
 
 namespace CollegeApp.Domain.BookModels;
 
-public class BookCommonModel : BaseModel
+public class BookCommonModel
 {
-    public string Name { get; set; }
+    public int BookID { get; set; }
+    public string Title { get; set; }
+    public string ISBN { get; set; }
     public string Description { get; set; }
+    public DateTime? PublicationDate { get; set; }
+    public string Language { get; set; }
     public decimal Price { get; set; }
-    public double Rating { get; set; }
-    public int StockCount { get; set; }
-    public Language Language { get; set; }
-    public Format Format { get; set; }
-    public Edition Edition { get; set; }
-    
-    public ICollection<BookAuthor> BookAuthors { get; set; } = new List<BookAuthor>();
-    public ICollection<BookPublisher> BookPublishers { get; set; } = new List<BookPublisher>();
+    public int Stock { get; set; }
+    public int Popularity { get; set; } = 0;
+    public int PublisherID { get; set; }
+    public int FormatID { get; set; }
+
+    // Optional navigation properties (if using EF or manually joining)
+    public PublisherCommonModel Publisher { get; set; }
+    public FormatCommonModel Format { get; set; }
 }
