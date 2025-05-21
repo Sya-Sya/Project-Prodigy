@@ -1,5 +1,5 @@
 ﻿using CollegeApp.Application.Interface;
-using CollegeApp.Infrastructure.Repositories.AgentRepo;
+using CollegeApp.Domain.StudentModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CollegeApp.API.Controllers
@@ -9,12 +9,17 @@ namespace CollegeApp.API.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentServices _studentServices;
-        private readonly IAgentRepository _AgentServices;
 
-        public StudentController(IStudentServices studentServices, IAgentRepository agentservices)
+        public StudentController(IStudentServices studentServices)
         {
             _studentServices = studentServices;
-            _AgentServices = agentservices;
+        }
+
+        [HttpPost("addStudent")]
+        public IActionResult AddStudent(StudentCommonModel model)
+        {
+            var students = _studentServices.AddStudent(model);
+            return Ok(students);
         }
 
         [HttpGet("students")]
@@ -24,18 +29,25 @@ namespace CollegeApp.API.Controllers
             return Ok(students);
         }
 
-        [HttpGet("agents")]
-        public async Task<IActionResult> GetAll()
+        [HttpPost("GetById")]
+        public IActionResult GetSpeceficStudent(int id)
         {
-            var agent = await _AgentServices.GetAllAgentAsync();
-            return Ok(agent);
+            var students = _studentServices.GetStudentById(id);
+            return Ok(students);
         }
 
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetById(int id)
-        //{
-        //    var agent = await _AgentServices.GetAgentByIdAsync(id);
-        //    return agent is not null ? Ok(agent) : NotFound();
-        //}
+        [HttpPost("delete")]
+        public IActionResult DeleteStudent(int id)
+        {
+            var students = _studentServices.DeleteStudent(id);
+            return Ok(students);
+        }
+
+        [HttpPost("update")]
+        public IActionResult Updatedata(StudentCommonModel model)
+        {
+            var agent = _studentServices.UpdateStudent(model);
+            return Ok(agent);
+        }
     }
 }

@@ -1,12 +1,13 @@
-﻿using CollegeApp.Domain.StudentModels;
+﻿using CollegeApp.Domain;
+using CollegeApp.Domain.StudentModels;
 
 namespace CollegeApp.Application.Interface;
 
 public interface IStudentServices
 {
-    IEnumerable<StudentCommonModel> GetAllStudents();
-    StudentCommonModel GetStudentById(int id);
-    int AddStudent(StudentCommonModel student);
-    int UpdateStudent(StudentCommonModel student);
-    int DeleteStudent(int id);
+    BaseResponseModel<StudentCommonModel> AddStudent(StudentCommonModel student);
+    BaseResponseModel<IEnumerable<StudentCommonModel>> GetAllStudents();
+    BaseResponseModel<StudentCommonModel> GetStudentById(int id);
+    BaseResponseModel<StudentCommonModel> DeleteStudent(int id);
+    BaseResponseModel<StudentCommonModel> UpdateStudent(StudentCommonModel student);
 }
