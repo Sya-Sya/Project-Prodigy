@@ -4,7 +4,7 @@ using CollegeApp.Domain.Enums.Books;
 
 namespace CollegeApp.Domain.BookModels;
 
-public class BookCommonModel : BaseModel
+public class BookCommonModel
 {
     public string Name { get; set; }
     public string Description { get; set; }

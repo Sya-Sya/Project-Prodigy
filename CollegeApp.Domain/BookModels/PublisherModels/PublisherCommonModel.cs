@@ -1,6 +1,6 @@
 ﻿namespace CollegeApp.Domain.BookModels.PublisherModels;
 
-public class PublisherCommonModel : BaseModel
+public class PublisherCommonModel
 {
     public string Name { get; set; }
 

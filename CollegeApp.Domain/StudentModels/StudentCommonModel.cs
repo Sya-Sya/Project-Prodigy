@@ -1,6 +1,6 @@
 ﻿namespace CollegeApp.Domain.StudentModels;
 
-public class StudentCommonModel /*: BaseModel//Student related models*/
+public class StudentCommonModel
 {
     public string StudentId { get; set; }
     public string FullName { get; set; }

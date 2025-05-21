@@ -1,6 +1,6 @@
 ﻿namespace CollegeApp.Domain.BookModels.AuthorModels;
 
-public class AuthorCommonModel : BaseModel
+public class AuthorCommonModel
 {
     public string Name { get; set; }
 
