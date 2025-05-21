@@ -4,7 +4,7 @@ namespace CollegeApp.Domain.BookModels;
 
 public class BookCommonModel
 {
-    public int BookID { get; set; }
+    public int BookId { get; set; }
     public string Title { get; set; }
     public string ISBN { get; set; }
     public string Description { get; set; }
@@ -15,8 +15,4 @@ public class BookCommonModel
     public int Popularity { get; set; } = 0;
     public int PublisherID { get; set; }
     public int FormatID { get; set; }
-
-    // Optional navigation properties (if using EF or manually joining)
-    public PublisherCommonModel Publisher { get; set; }
-    public FormatCommonModel Format { get; set; }
 }

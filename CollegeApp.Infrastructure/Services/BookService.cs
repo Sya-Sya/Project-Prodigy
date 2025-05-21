@@ -1,48 +1,143 @@
-﻿//using CollegeApp.Application.Interface;
-//using CollegeApp.Domain;
-//using CollegeApp.Domain.BookModels;
-//using Dapper;
-//using Microsoft.Extensions.Logging;
-//using System.Data;
+﻿using CollegeApp.Application.Interface;
+using CollegeApp.Domain;
+using CollegeApp.Domain.BookModels;
+using CollegeApp.Domain.Helpers;
+using CollegeApp.Domain.BookModels;
+using Dapper;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
-//namespace CollegeApp.Infrastructure.Services;
-//public class BookService : IBookService
-//{
-//    private readonly IDbConnection _dbConnection;
+namespace CollegeApp.Infrastructure.Services;
+public class BookService : IBookServices
+{
+    private readonly IDbConnection _dbConnection;
 
-//    public BookService(IDbConnection dbConnection,
-//        ILogger logger)
-//    {
-//        _dbConnection = dbConnection;
-//    }
-//    public async Task<int> CreateAsync(BookCommonModel input)
-//    {
-//        var query = "INSERT INTO Books (Name) VALUES (@Name)";
+    public BookService(
+        IDbConnection dbConnection
+        )
+    {
+        _dbConnection = dbConnection;
+    }
 
-//        var book = await _dbConnection.ExecuteScalarAsync<int>(query, input);
+    public BaseResponseModel<BookCommonModel> AddBook(BookCommonModel book)
+    {
+        string query = @"INSERT INTO Books 
+                            (Title, ISBN, Description, PublicationDate, Language, Price, Stock, Popularity, PublisherID, FormatID) 
+                         VALUES 
+                            (@Title, @ISBN, @Description, @PublicationDate, @Language, @Price, @Stock, @Popularity, @PublisherID, @FormatID); 
+                         SELECT CAST(SCOPE_IDENTITY() AS int);";
 
-//        return book;
+        try
+        {
+            int newBookId = _dbConnection.ExecuteScalar<int>(query, book);
+            book.BookId = newBookId;
 
-//        throw new NotImplementedException();
-//    }
+            return ResponseFactory.Success(book, $"Book '{book.Title}' was successfully added with ID {newBookId}.");
+        }
+        catch (SqlException sqlEx)
+        {
+            return ResponseFactory.SqlError<BookCommonModel>(sqlEx.Message);
+        }
+        catch (Exception ex)
+        {
+            return ResponseFactory.Error<BookCommonModel>(ex.Message);
+        }
+    }
 
-//    public async Task DeleteAsync(Guid id)
-//    {
-//        throw new NotImplementedException();
-//    }
+    public BaseResponseModel<BookCommonModel> DeleteBook(int id)
+    {
+        BookCommonModel SCM = new BookCommonModel();
+        string query = "DELETE FROM Books WHERE BookID = @Id";
+        string mesage = "";
+        try
+        {
+            int rowsAffected = _dbConnection.Execute(query, new { Id = id });
 
-//    public async Task<BookCommonModel> GetAsync(Guid id)
-//    {
-//        throw new NotImplementedException();
-//    }
+            if (rowsAffected > 0)
+            {
+                mesage = $"Book with ID {id} was successfully deleted.";
+                return ResponseFactory.Success<BookCommonModel>(SCM, mesage);
+            }
+            else
+            {
+                mesage = $"No book found with ID {id}.";
+                return ResponseFactory.Success<BookCommonModel>(SCM, mesage);
 
-//    public async Task<PagedResult<BookCommonModel>> GetListAsync(BookFilter input)
-//    {
-//        throw new NotImplementedException();
-//    }
+            }
+        }
+        catch (SqlException sqlEx)
+        {
+            return ResponseFactory.SqlError<BookCommonModel>(sqlEx.Message);
+        }
+        catch (Exception ex)
+        {
+            return ResponseFactory.Error<BookCommonModel>(ex.Message);
+        }
+    }
 
-//    public async Task<BookCommonModel> UpdateAsync(Guid id, BookCommonModel input)
-//    {
-//        throw new NotImplementedException();
-//    }
-//}
+    public BaseResponseModel<IEnumerable<BookCommonModel>> GetAllBooks()
+    {
+        string query = "SELECT * FROM Books";
+
+        try
+        {
+            var books = _dbConnection.Query<BookCommonModel>(query).ToList();
+            return ResponseFactory.SuccessList(books);
+        }
+        catch (SqlException sqlEx)
+        {
+            return ResponseFactory.SqlError<IEnumerable<BookCommonModel>>(sqlEx.Message);
+        }
+        catch (Exception ex)
+        {
+            return ResponseFactory.Error<IEnumerable<BookCommonModel>>(ex.Message);
+        }
+    }
+
+    public BaseResponseModel<BookCommonModel> GetBookById(int id)
+    {
+        string query = "SELECT * FROM Books WHERE BookID = @Id";
+        try
+        {
+            var book = _dbConnection.QuerySingleOrDefault<BookCommonModel>(query, new { Id = id });
+            return ResponseFactory.Success(book);
+        }
+        catch (SqlException sqlEx)
+        {
+            return ResponseFactory.SqlError<BookCommonModel>(sqlEx.Message);
+        }
+        catch (Exception ex)
+        {
+            return ResponseFactory.Error<BookCommonModel>(ex.Message);
+        }
+    }
+
+    public BaseResponseModel<BookCommonModel> UpdateBook(BookCommonModel book)
+    {
+        string query = "UPDATE Book SET FullName = @FullName, Email = @Email WHERE BookId = @BookId";
+        string mesage = "";
+        try
+        {
+            int rowsAffected = _dbConnection.Execute(query, book);
+
+            if (rowsAffected > 0)
+            {
+                mesage = $"Book with Name {book.Title} was successfully deleted.";
+                return ResponseFactory.Success<BookCommonModel>(book, mesage);
+            }
+            else
+            {
+                mesage = $"No book found with Name {book.Title}.";
+                return ResponseFactory.Success<BookCommonModel>(book, mesage);
+            }
+        }
+        catch (SqlException sqlEx)
+        {
+            return ResponseFactory.SqlError<BookCommonModel>(sqlEx.Message);
+        }
+        catch (Exception ex)
+        {
+            return ResponseFactory.Error<BookCommonModel>(ex.Message);
+        }
+    }
+}

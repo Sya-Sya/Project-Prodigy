@@ -1,24 +1,52 @@
-﻿//using CollegeApp.Application.Interface;
-//using CollegeApp.Domain.BookModels;
-//using Microsoft.AspNetCore.Mvc;
+﻿using CollegeApp.Application.Interface;
+using CollegeApp.Domain.BookModels;
+using Microsoft.AspNetCore.Mvc;
 
-//namespace CollegeApp.API.Controllers;
-//[ApiController]
-//[Route("api/[controller]")]
-//public class BookController : Controller
-//{
-//    private readonly IBookService _bookService;
+namespace CollegeApp.API.Controllers;
+[ApiController]
+[Route("api/[controller]")]
+public class BookController : ControllerBase
+{
+    private readonly IBookServices _bookServices;
 
-//    public BookController(IBookService bookService)
-//    {
-//        _bookService = bookService;
-//    }
+    public BookController(IBookServices bookServices)
+    {
+        _bookServices = bookServices;
+    }
 
-//    [HttpPost("books")]
-//    public IActionResult CreateBook(BookCommonModel input)
-//    {
-//        var books = _bookService.CreateAsync(input);
-//        return Ok(books);
-//    }
-//}
+    [HttpPost("addBook")]
+    public IActionResult AddBook(BookCommonModel model)
+    {
+        var books = _bookServices.AddBook(model);
+        return Ok(books);
+    }
+
+    [HttpGet("books")]
+    public IActionResult GetBookList()
+    {
+        var books = _bookServices.GetAllBooks();
+        return Ok(books);
+    }
+
+    [HttpPost("GetById")]
+    public IActionResult GetSpeceficBook(int id)
+    {
+        var books = _bookServices.GetBookById(id);
+        return Ok(books);
+    }
+
+    [HttpPost("delete")]
+    public IActionResult DeleteBook(int id)
+    {
+        var books = _bookServices.DeleteBook(id);
+        return Ok(books);
+    }
+
+    [HttpPost("update")]
+    public IActionResult Updatedata(BookCommonModel model)
+    {
+        var agent = _bookServices.UpdateBook(model);
+        return Ok(agent);
+    }
+}
 

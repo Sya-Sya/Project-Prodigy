@@ -20,7 +20,7 @@ using (var scope = app.Services.CreateScope())
 {
     var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
     var loggerFactory = scope.ServiceProvider.GetRequiredService<ILoggerFactory>();
-    var connectionString = configuration.GetConnectionString("DefaultConnection");
+    var connectionString = configuration["ConnectionString"];
 
     using var connection = new SqlConnection(connectionString);
     await connection.OpenAsync();
