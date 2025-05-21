@@ -2,6 +2,8 @@ CREATE TABLE [dbo].[Student] (
     [StudentId] INT IDENTITY(1,1) PRIMARY KEY,
     [FullName] NVARCHAR(100) NOT NULL,
     [Email] NVARCHAR(100) UNIQUE NOT NULL,
+	[IsDeleted] VARCHAR(5) NULL,
+	[IsBlocked] VARCHAR(5) NULL,
     [EnrollmentDate] DATE NOT NULL
 );
 

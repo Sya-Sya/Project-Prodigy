@@ -2,6 +2,8 @@ CREATE TABLE [dbo].[Members] (
     [MemberID] INT IDENTITY(1,1) PRIMARY KEY,
     [FullName] VARCHAR(100) NOT NULL,
     [Email] VARCHAR(100) NOT NULL UNIQUE,
+	[IsDeleted] VARCHAR(5) NULL,
+	[IsBlocked] VARCHAR(5) NULL,
     [PasswordHash] VARCHAR(255) NOT NULL,
     [JoinDate] DATE DEFAULT CAST(GETDATE() AS DATE)
 );
