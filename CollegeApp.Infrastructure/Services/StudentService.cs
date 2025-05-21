@@ -37,7 +37,7 @@ public class StudentService : IStudentServices
 
     public int DeleteStudent(int id)
     {
-        string query = "DELETE FROM Students WHERE Id = @Id";
+        string query = "DELETE FROM Student WHERE StudentId = @Id";
         try
         {
             return _dbConnection.Execute(query, new { Id = id });
@@ -56,7 +56,7 @@ public class StudentService : IStudentServices
 
     public IEnumerable<StudentCommonModel> GetAllStudents()
     {
-        string query = "SELECT * FROM Students";
+        string query = "SELECT * FROM Student";
 
         try
         {
@@ -72,16 +72,11 @@ public class StudentService : IStudentServices
             Console.WriteLine($"General Error: {ex.Message}");
             return Enumerable.Empty<StudentCommonModel>();
         }
-        //return new List<StudentCommonModel>
-        //{
-        //    new StudentCommonModel { Id = "1", Name = "Bigya GOD" },
-        //    new StudentCommonModel { Id = "2", Name = "SHINIGAMI" }
-        //};
     }
 
     public StudentCommonModel GetStudentById(int id)
     {
-        string query = "SELECT * FROM Students WHERE Id = @Id";
+        string query = "SELECT * FROM Student WHERE StudentId = @Id";
         try
         {
             return _dbConnection.QuerySingleOrDefault<StudentCommonModel>(query, new { Id = id });
@@ -100,7 +95,7 @@ public class StudentService : IStudentServices
 
     public int UpdateStudent(StudentCommonModel student)
     {
-        string query = "UPDATE Students SET Name = @Name, Age = @Age, Department = @Department WHERE Id = @Id";
+        string query = "UPDATE Student SET FullName = @FullName, Email = @Email WHERE StudentId = @StudentId";
         try
         {
             return _dbConnection.Execute(query, student);
