@@ -18,5 +18,42 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    min-height: 100vh
 }
+
+.sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    transition: all 0.3s;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.sidebar .nav-link {
+    margin-bottom: 10px;
+}
+
+.sidebar-collapsed {
+    width: 70px;
+}
+
+    .sidebar-collapsed .nav-link span {
+        display: none;
+    }
+
+/* Hover effect */
+.sidebar .nav-link:hover {
+    background-color: #343a40;
+    color: #fff;
+}
+
+    /* Icon color change on hover */
+    .sidebar .nav-link:hover i {
+        color: #fff;
+    }
