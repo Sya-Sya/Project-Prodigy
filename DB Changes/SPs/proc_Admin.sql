@@ -1,5 +1,6 @@
 CREATE PROCEDURE proc_Admin
     @flag VARCHAR(10) = NULL,
+	@id VARCHAR(10) = NULL,
     @Username VARCHAR(20) = NULL,
 	@FullName VARCHAR(50) = NULL,
 	@Email VARCHAR(255) = NULL,
@@ -14,20 +15,29 @@ BEGIN TRY
     DECLARE @additionalErrorMessage VARCHAR(100);
 
     BEGIN
-        IF @flag IN ('u', 'c', 'd')
+        IF @flag = 'GS' --get students
         BEGIN
-            SELECT * 
-            FROM Orders 
-            WHERE [Status] = 
-                CASE 
-                    WHEN @flag = 'u' THEN 'Pending'
-                    WHEN @flag = 'c' THEN 'Confirmed'
-                    WHEN @flag = 'd' THEN 'Delivered'
-                END;
+            Select  * from Student
         END
-        ELSE
+        ELSE IF @flag = 'GSI' -- get student by ID
         BEGIN
-            SELECT * FROM Orders;
+             Select  * from Student where StudentId = @id
+        END
+		ELSE IF @flag = 'BS' -- block student
+        BEGIN
+             UPDATE student set IsBlocked = 'Y' WHERE StudentId = @id
+        END
+		ELSE IF @flag = 'GB' -- get books
+        BEGIN
+             Select  * from Books
+        END
+		ELSE IF @flag = 'GBI' -- get books
+        BEGIN
+             Select  * from Books where BookID = @id
+        END
+		ELSE IF @flag = 'BB' -- Block books
+        BEGIN
+			 UPDATE Books set IsBlocked = 'Y' WHERE BookID = @id
         END
     END
 END TRY

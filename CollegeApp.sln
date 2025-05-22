@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollegeApp.Domain", "Colleg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollegeApp.Infrastructure", "CollegeApp.Infrastructure\CollegeApp.Infrastructure.csproj", "{2E2AEA73-3C6E-410C-AEB3-6FF74785E66E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeApp.Web", "CollegeApp.Web\CollegeApp.Web.csproj", "{681291E2-B065-45C7-BEDC-586B1B5F2CB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollegeApp.Web", "CollegeApp.Web\CollegeApp.Web.csproj", "{681291E2-B065-45C7-BEDC-586B1B5F2CB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeApp.DependencyContainer", "CollegeApp.DependencyContainer\CollegeApp.DependencyContainer.csproj", "{EC991400-1FA7-48E4-B1E7-35F82BCDA535}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollegeApp.DependencyContainer", "CollegeApp.DependencyContainer\CollegeApp.DependencyContainer.csproj", "{EC991400-1FA7-48E4-B1E7-35F82BCDA535}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
