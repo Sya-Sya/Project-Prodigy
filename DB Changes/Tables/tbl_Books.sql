@@ -7,6 +7,8 @@ CREATE TABLE [dbo].[Books] (
     [Language] VARCHAR(50),
     [Price] DECIMAL(10, 2),
     [Stock] INT,
+	[IsDeleted] VARCHAR(5) NULL,
+	[IsBlocked] VARCHAR(5) NULL,
     [Popularity] INT DEFAULT 0,
     [PublisherID] INT,
     [FormatID] INT,
