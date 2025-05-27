@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_LogInLayout";
+}
+
+<div class="grid-container">
+    <div class="form-section">
+        <div class="form-box">
+            <h1>WELCOME BACK</h1>
+            <p class="subtitle">Welcome back! Please enter your details.</p>
+
+            <input type="email" placeholder="Enter your email" />
+            <input type="password" placeholder="********" />
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password</a>
+            </div>
+            <button class="login-btn">Sign in</button>
+            <button class="google-btn">
+                <img src="https://img.icons8.com/color/16/000000/google-logo.png" />
+                Sign in with Google
+            </button>
+            <div class="signup">
+                Don’t have an account? <a href="@Url.Action("Index", "Register")">Back</a>
+            </div>
+        </div>
+    </div>
+    <div class="image-section">
+        <img src="~/Gojo.jpg" alt="Side image">
+    </div>
+</div>

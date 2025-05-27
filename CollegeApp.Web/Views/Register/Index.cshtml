@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "_LogInLayout";
+}
+
+<div class="grid-container">
+    <div class="form-section">
+        <img src="~/Gojo.jpg" alt="Side image">
+    </div>
+    <div class="image-section">
+        <div class="form-box">
+            <h1>Register</h1>
+            <p class="subtitle">Please Register, Please enter your details.</p>
+
+            <input type="email" placeholder="Enter your email" />
+            <input type="password" placeholder="********" />
+            <input type="cpassword" placeholder="********" />
+@*             <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password</a>
+            </div> *@
+            <button class="login-btn">Sign up</button>
+            <button class="google-btn">
+                <img src="https://img.icons8.com/color/16/000000/google-logo.png" />
+                Sign in with Google
+            </button>
+            <div class="signup">
+                Already have an account? <a href="@Url.Action("Index", "Login")">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
